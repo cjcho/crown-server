@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>Servers.Server.Create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>Servers.Server.Create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='servers'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('servers/server/create','servers/fixtures',function(){
+				
+				$('#create').servers_server_create();
+				Servers.Models.Server.bind('created', function(ev, server){
+					$('<div>').html("<h3>"+server.name+"</h3><p>"+server.description+"</p>")
+					        .appendTo( $('#servers') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>
