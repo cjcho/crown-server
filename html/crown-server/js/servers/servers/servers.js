@@ -37,7 +37,8 @@ $.Controller('Servers.Servers',
 							'linkToObject': true
 						},
 						{
-							'label': 'Operating System',
+							'label': 'OS',
+							'key': 'operating_system',
 							'linkToObject': true
 						},
 						{
