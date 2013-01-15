@@ -96,8 +96,9 @@ $.Controller('Servers.Servers',
 					},
 					{
 						'label': 'Comment',
+						'type': 'textarea',
 						'tab': 'General',
-						'section': 'General'
+						'section': 'Comment'
 					}
 					]
 		} ;
