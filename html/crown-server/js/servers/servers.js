@@ -1,4 +1,5 @@
 steal(
+	'jquery/controller/route',
 	'//CROWN/utils.js',
 	'//CROWN/Grid/Grid',
 	'//CROWN/Detail/Detail',

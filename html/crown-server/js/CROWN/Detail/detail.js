@@ -33,6 +33,8 @@ $.Controller('CROWN.Detail',
 		this.headerRight = options.headerRight ;
 		this.footerRight = options.footerRight ;
 		this.footerLeft = options.footerLeft ;
+		
+		this.itemName = options.itemName ;
 
 		// organize the fields by tab and section
 		var collection = [] ;

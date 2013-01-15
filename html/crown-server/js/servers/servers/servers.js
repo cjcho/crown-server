@@ -13,7 +13,7 @@ $.Controller('Servers.Servers',
 },
 /** @Prototype */
 {
-	init : function(){
+	'route' : function(){
 
 		var options = {
 			model: Servers.Models.Server,
@@ -52,9 +52,61 @@ $.Controller('Servers.Servers',
 						]
 		} ;
 
+		if(this.element.hasClass('crown_grid')) $(this.element).crown_grid('destroy') ;
 		this.element.crown_grid(options) ;
 
+	},
+
+	'servers/:id route': function(route){
+
+		var options = {
+			model: Servers.Models.Server,
+			id: route.id,
+			itemName: {singular: 'Server', plural: 'Servers'},
+			fields: [
+					{
+						'label': 'Host Name',
+						'tab': 'General',
+						'section': 'General'
+					},
+					{
+						'label': 'Guest Name',
+						'tab': 'General',
+						'section': 'General'
+					},
+					{
+						'label': 'IP Address',
+						'tab': 'General',
+						'section': 'General'
+					},
+					{
+						'label': 'Info',
+						'tab': 'General',
+						'section': 'General'
+					},
+					{
+						'label': 'Operating System',
+						'tab': 'General',
+						'section': 'General'
+					},
+					{
+						'label': 'CPU RAM',
+						'tab': 'General',
+						'section': 'General'
+					},
+					{
+						'label': 'Comment',
+						'tab': 'General',
+						'section': 'General'
+					}
+					]
+		} ;
+
+		if(this.element.hasClass('crown_detail')) $(this.element).crown_detail('destroy') ;
+		$(this.element).crown_detail(options) ;
+
 	}
+
 }) ;
 
 });
