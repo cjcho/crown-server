@@ -44,10 +44,6 @@ $.Controller('Servers.Servers',
 						{
 							'label': 'CPU RAM',
 							'linkToObject': true
-						},
-						{
-							'label': 'Comment',
-							'linkToObject': true
 						}
 						]
 		} ;
@@ -65,17 +61,18 @@ $.Controller('Servers.Servers',
 			itemName: {singular: 'Server', plural: 'Servers'},
 			fields: [
 					{
+						'label': 'IP Address',
+						'tab': 'General',
+						'editable': false,
+						'section': 'IP Address'
+					},
+					{
 						'label': 'Host Name',
 						'tab': 'General',
 						'section': 'General'
 					},
 					{
 						'label': 'Guest Name',
-						'tab': 'General',
-						'section': 'General'
-					},
-					{
-						'label': 'IP Address',
 						'tab': 'General',
 						'section': 'General'
 					},
@@ -87,12 +84,12 @@ $.Controller('Servers.Servers',
 					{
 						'label': 'Operating System',
 						'tab': 'General',
-						'section': 'General'
+						'section': 'Specifications'
 					},
 					{
 						'label': 'CPU RAM',
 						'tab': 'General',
-						'section': 'General'
+						'section': 'Specifications'
 					},
 					{
 						'label': 'Comment',
