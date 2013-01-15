@@ -21,15 +21,15 @@ $.Controller('Servers.Servers',
 			numberOfRows: 25,
 			showColumns:[
 						{
+							'label': 'IP Address',
+							'linkToObject': true
+						},
+						{
 							'label': 'Host Name',
 							'linkToObject': true
 						},
 						{
 							'label': 'Guest Name',
-							'linkToObject': true
-						},
-						{
-							'label': 'IP Address',
 							'linkToObject': true
 						},
 						{
