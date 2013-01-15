@@ -1,0 +1,47 @@
+.tabs-left > .nav-tabs {
+	margin-right: 0px;
+	border:none;
+}
+
+.tabs-left > .nav-tabs > li > a:hover {
+	border-color: #ddd;
+	color: #555555;
+}
+
+.nav-tabs > li.active > a {
+	color: #555555;
+}
+
+.nav-tabs > li > a {
+	color: #999999;
+	margin-bottom: 0px !important;
+	border-top-color: transparent;
+
+	-webkit-border-radius: 0px !important;
+	   -moz-border-radius: 0px !important;
+			border-radius: 0px !important;
+
+	-webkit-transition: all .15s ease;
+	   -moz-transition: all .15s ease;
+	   		transition: all .15s ease;
+}
+
+.tab-content {
+	border: 1px solid #ddd;
+
+	background-color: #ffffff;
+	min-height: 400px;
+}
+
+.section {
+	padding: 20px;
+	padding-top: 10px;
+	
+	border-bottom: 1px solid #ddd;
+}
+
+.section .field {
+	float:left;
+	margin-right: 40px;
+	margin-top: 10px;
+}

@@ -1,0 +1,32 @@
+form {
+	margin-bottom: 0px;
+}
+
+.table-bordered {
+    background-color: white;
+
+	-webkit-border-radius: 0px;
+       -moz-border-radius: 0px;
+       		border-radius: 0px;
+}
+
+th i[class*="icon-"] {
+	float:right;
+	display:none;
+}
+
+th.selected i[class*="icon-"] {
+	display:block;
+}
+td a {
+	color:#333;
+}
+
+td a:hover {
+	color:#111;
+}
+
+td.info {
+	padding-top:10px;
+	text-align:center;
+}

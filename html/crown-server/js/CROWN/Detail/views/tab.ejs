@@ -1,0 +1,7 @@
+<div class="tab-pane<%if(tab_index==0){%> active<%}%>" id="<%=strToLowerDashed(tab_val.name)%>">
+	
+	<% $.each(tab_val.sections, function(section_index, section_val){ %>
+		<%== $.View('//CROWN/Detail/views/section.ejs', {section_index:section_index, section_val:section_val, model:model}) %>
+	<% }); %> 
+
+</div> <!-- end .tab-pane -->

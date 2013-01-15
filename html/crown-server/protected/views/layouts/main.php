@@ -5,7 +5,7 @@
 	</head>
 	<body>
 
-		<ul id="servers"></ul>
+		<div id="content"></div>
 
 		<script type="text/javascript" src="/js/steal/steal.js?servers"></script>
 		

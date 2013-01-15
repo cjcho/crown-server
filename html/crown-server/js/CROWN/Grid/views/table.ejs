@@ -1,0 +1,43 @@
+<% if(models.length == 0) { %>
+	<tr>
+		<td class="info" colspan="<%=given.keys.length %>">No results found</td>
+	</tr>
+<% 	} //end if
+	else {
+	
+		for(var i = 0; i < models.length; i++){ 
+			var m = models[i];
+		%>
+			<tr class="model" <%=m%>>
+				<% $.each(given.fields, function(index, field){ %>
+					<td>
+						<% if(field.html != null) {%>
+							<%==field.html%>
+						<%} else {%>
+							<% if(field.linkToObject) {%>
+								<a href="#!<%=given.itemName.plural.toLowerCase()%>/<%=m['id']%>">
+							<%}%>
+							
+							<%=m[field.key]%>
+
+							<% if(field.linkToObject) {%>
+								</a>
+							<%}%>
+						<%}%>
+					</td>
+				<% }); %>
+			</tr>
+		<% 
+		} //end for 
+		%>
+
+		<tr>
+			<td class="info" colspan="<%=given.keys.length %>">
+				<p class="align-left">Loaded <%=models.length%> out of <%=models.totalNumber%> <%=given.itemName.plural.toLowerCase()%></p>
+				<a class="align-right load-more-results btn btn-mini<%if(models.length==models.totalNumber){%> disabled<%}%>">Load more results</a>
+			</td>
+		</tr>
+		
+<% 	
+	} //end else
+%>

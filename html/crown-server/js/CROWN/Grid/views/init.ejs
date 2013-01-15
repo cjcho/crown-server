@@ -1,0 +1,34 @@
+<div class="navbar titlebar">
+	<div class="navbar-inner">
+		<a class="brand"><%=given.itemName.plural %></a>
+		
+		<% if(given.showAdd) {%>
+			<a class="btn navbar-btn pull-right" id="addRow"><i class="icon-plus"></i></a>
+		<%}%>
+
+		<form class="navbar-form pull-right">
+			<input id="filter" type="search" placeholder="Search..."/>
+		</form>
+
+	</div>
+</div>
+<table class="table table-bordered">
+	<thead class="subheading">
+		<tr>
+			<%
+			var i = 0 ;
+			$.each(given.fields, function(index, field){
+				//Setting width so refreshing looks prettier
+				//first row gets 30 percent, other rows need to share the remaining 70 procent of the table
+				var width = 70 / given.keys.length ;
+				if(i == 0) width = 30 ;
+			%>
+			<th width="<%=width%>%" data-key="<%=field.key%>"><%=field.label%> <i class="icon-chevron-up"></i></th>
+			<%	
+				i++ ;
+			});
+			%>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>

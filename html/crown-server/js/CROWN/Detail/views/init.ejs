@@ -1,0 +1,57 @@
+<div class="navbar titlebar">  
+	<div class="navbar-inner">
+		<a class="brand"><%= model.name %></a>
+	
+		<% if(given.headerLeft) {%>
+			<div class="pull-left">
+				<%==given.headerLeft%>
+			</div>
+		<%}%>
+		
+		<% if(given.headerRight) {%>
+			<div class="pull-right">
+				<%==given.headerRight%>
+			</div>
+		<%}%>
+	</div>
+</div>
+
+<div class="tabbable tabs-left">
+
+	<ul class="nav nav-tabs nav-stacked">
+		<% $.each(given.tabs, function(tab_index, tab_val){ %>
+			<li<% if(tab_index == 0){ %> class="active"<%}%>>
+				<a href="#<%=strToLowerDashed(tab_val.name)%>" data-toggle="tab"><%= tab_val.name %></a>
+			</li>
+		<% }); %>
+	</ul>
+
+
+	<form class="tab-content">
+		<% $.each(given.tabs, function(tab_index, tab_val){ %>
+			<%== $.View('//CROWN/Detail/views/tab.ejs', { tab_index:tab_index, tab_val:tab_val, model:model }) %>
+		<% }); %>
+	</form> <!-- end .tab-content -->
+	
+</div> <!-- end .tabbable -->
+
+<div class="navbar footerbar">  
+	<div class="navbar-inner">
+
+		<% if(given.footerLeft) {%>
+			<div class="pull-left">
+				<%==given.footerLeft%>
+			</div>
+		<%}%>
+
+		<div class="pull-right">
+
+			<% if(given.footerRight) {%>
+				<%==given.footerRight%>
+			<%}%>
+
+			<a class="btn btn-large btn-primary save" href="javascript://">Save</a>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

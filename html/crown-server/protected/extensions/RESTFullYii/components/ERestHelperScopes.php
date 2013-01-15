@@ -22,9 +22,9 @@ class ERestHelperScopes extends CActiveRecordBehavior
   {
     if(empty($field)) return $this->Owner;
 
-    if(!is_array($orderListItems = CJSON::decode($field)))
+    if(!is_array($orderListItems = $field))
     {
-       $this->Owner->getDbCriteria()->mergeWith(array(
+      $this->Owner->getDbCriteria()->mergeWith(array(
         'order'=>$this->getSortSQL($field, $dir)
       ));
       return $this->Owner;
@@ -44,6 +44,7 @@ class ERestHelperScopes extends CActiveRecordBehavior
 
   public function filter($filter)
   {
+
     if(empty($filter)) return $this->Owner;
     
     if(!is_array($filter))
@@ -53,35 +54,80 @@ class ERestHelperScopes extends CActiveRecordBehavior
   
     $query = "";
     $params = array();
+    
     foreach($filterItems as $filterItem)
     {
       if(!is_null($filterItem['property']))
       {
-        $cType = $this->getFilterCType($filterItem['property']);
-        
-        if($cType == 'text' || $cType == 'string')
-        {
+
+        //Check if array, means relational filtering
+        if(is_array($filterItem['property'])){
+          $depth = count($filterItem['property']) ;
           
-          $compare = " LIKE :" . $filterItem['property'];
-          $params[(":" . $filterItem['property'])] = '%' . $filterItem['value'] . '%';
+          $cType = $this->getFilterCType($filterItem['property'][$depth - 1]) ;
+
+          $property = $filterItem['property'][$depth - 2].'.'.$filterItem['property'][$depth - 1] ;
         }
-        else
-        {
-          $compare = " = :" . $filterItem['property'];
-          $params[(":" . $filterItem['property'])] = $filterItem['value'];
+        else{
+          $property = $this->getFilterAlias().'.'.$filterItem['property'] ;
+
+          $cType = $this->getFilterCType($filterItem['property']);
+        }
+        $property_key = str_replace('.', '_', $property); //special key, $params doesnt like keys with dots
+
+        //Filter!
+        if(isset($filterItem['compare'])
+        && $filterItem['compare'] == 'strict'){
+
+          if($filterItem['value'] == 'null'){
+            $compare = ' IS NULL' ;
+          }
+          else{
+            $compare = " = :" . $property_key;
+            $params[":" . $property_key] = $filterItem['value'];          
+          }
+
+
+        }
+        elseif(isset($filterItem['compare'])
+        && $filterItem['compare'] == 'is not'){
+
+          $compare = " != :" . $property_key;
+          $params[":" . $property_key] = $filterItem['value'] ;
+
+        }
+        else{
+
+          $compare = " LIKE :" . $property_key;
+          $params[":" . $property_key] = '%' . $filterItem['value'] . '%';
+
         }
 
-        $query .= (empty($query)? "(": " AND ") . $this->getFilterAlias($filterItem['property']) . '.' . $filterItem['property'] . $compare;
+        if(empty($query)){
+          $query .= '(' ;
+        }
+        else{
+          if (isset($filterItem['compare'])
+          && $filterItem['compare'] == 'strict') {
+            $query .= ' AND ' ;
+          }
+          else{
+            $query .= ' OR ' ;
+          }
+        }
+
+        $query .= $property . $compare;
+      
       }
+
     }
     if(empty($query)) return $this->Owner;
 
     $query .= ")";
-      
 
     $this->Owner->getDbCriteria()->mergeWith(array(
-        'condition'=>$query, 'params'=>$params
-      ));
+      'condition'=>$query, 'params'=>$params
+    ));
     return $this->Owner;
   }
 
@@ -93,14 +139,21 @@ class ERestHelperScopes extends CActiveRecordBehavior
     return 'text';
   }
 
-  private function getFilterAlias($property)
+  private function getFilterAlias()
   {
     return $this->Owner->getTableAlias(false, false);
   }
 
   private function getSortSQL($field, $dir='ASC')
   {
-    return $this->Owner->getTableAlias(false, false) . ".$field $dir";
+    if(is_array($field)){
+      //Field key is array, lets use it to order by relational table
+      $depth = count($field) ;
+      return $field[$depth - 2] . '.' . $field[$depth - 1] . ' ' . $dir ;
+    }
+    else{
+      return $this->Owner->getTableAlias(false, false) . '.' . $field . ' ' . $dir ;    
+    }
   }
 
 }

@@ -1,10 +1,12 @@
 steal(
-	'./servers.css', 			// application CSS file
+	'//CROWN/utils.js',
+	'//CROWN/Grid/Grid',
+	'//CROWN/Detail/Detail',
+	'./servers.css',			// application CSS file
 	'./models/models.js',		// steals all your models
-	'servers/server/create',
-	'servers/server/list',
+	'./servers/servers',
 	function(){					// configure your application
 		
-		$('#servers').servers_server_list();
-		$('#create').servers_server_create();
-})
+		$('#content').servers_servers() ;
+
+}) ;

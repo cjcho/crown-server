@@ -1,0 +1,109 @@
+<% 
+switch(field_val.type){ 
+	case "text": %>
+
+		<div class="field textfield">
+			<label for="<%=key%>"><%=field_val.label%>:</label>
+			<input 
+				<% if(field_val.editable == false){%>
+					disabled="disabled"
+				<%}%>
+				type="text" 
+				id="<%=key%>" 
+				name="<%=key%>" 
+				value="<%=model[field_val.key]%>">
+		</div>
+
+	<% break ; case "textarea": %>
+
+		<div class="field textarea">
+			<label for="<%=key%>"><%=field_val.label%>:</label>
+			<textarea 
+				<% if(field_val.editable == false){%>
+					disabled="disabled"
+				<%}%>
+				id="<%=key%>" 
+				name="<%=key%>"><%=model[field_val.key]%></textarea>
+		</div>
+
+	<% break ; case "checkbox": %>
+
+		<div class="field checkbox">
+			<label class="checkbox" for="<%=key%>">
+				<input 
+					<% if(model[field_val.key] == true){%>
+						checked="checked"
+					<%}%>
+					<% if(field_val.editable == false){%>
+						disabled="disabled"
+					<%}%>
+					type="checkbox" 
+					name="<%=key%>" 
+					id="<%=key%>">
+				<%=field_val.label%>
+			</label>
+		</div>
+
+	<% break ; case "radio": %>
+
+		<div class="field radio">
+			<p><%=field_val.label%></p>
+			
+			<% $.each(field_val.items, function(item_index, item_val){ %>
+				<label class="radio" for="<%=strToLowerDashed(item_val)%>">
+					
+					<input 
+						<% if(model[field_val.key] == strToLowerDashed(item_val)){%>
+							checked="checked"
+						<%}%>
+						<% if(field_val.editable == false){%>
+							disabled="disabled"
+						<%}%>
+						type="radio" 
+						name="<%=key%>" 
+						value="<%=item_val%>" 
+						id="<%=strToLowerDashed(item_val)%>">
+
+					<%=item_val%>
+
+				</label>
+			<% }); %>
+		</div>
+
+	<% break ; case "select": %>
+
+		<div class="field select">
+			<label for="<%=key%>"><%=field_val.label%></label>
+			<select name="<%=key%>" id="<%=key%>">
+				<% $.each(field_val.items, function(item_index, item_val){ %>
+					<option 
+						<% if(field_val.editable == false){%>
+							disabled="disabled"
+						<%}%>
+						<% if(strToLowerDashed(model[field_val.key]) == strToLowerDashed(item_val)){%>
+							selected="selected"
+						<%}%>
+						value="<%=item_val%>">
+							<%=item_val%>
+					</option>
+				<% }); %>
+			</select>
+		</div>
+
+	<% break ; case "html": %>
+
+		<div class="field html">
+
+			<%==field_val.html%>
+
+		</div>
+
+	<% break ; default: %>
+	
+		<!-- When all else fails -->
+		<div class="field">
+			<p>Field not found</p>
+		</div>
+
+	<% break ; %>
+<% } %> <!-- end switch -->

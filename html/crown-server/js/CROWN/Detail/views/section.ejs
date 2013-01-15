@@ -1,0 +1,15 @@
+<div class="section">
+
+	<h4><%=section_val.name%></h4>
+
+	<% $.each(section_val.fields, function(field_index, field_val){ %>
+		<%== $.View('//CROWN/Detail/views/field.ejs', {
+			key: strToLowerUnderscored(field_val.label),
+			model: model,
+			field_index: field_index,
+			field_val: field_val}) %>
+	<% }); %>
+
+	<div class="clearfix"></div>
+
+</div><!-- end .section -->
