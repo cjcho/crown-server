@@ -20,12 +20,12 @@ return array(
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 		
-		'gii'=>array(
-			'class'=>'system.gii.GiiModule',
-			'password'=>'crown',
-			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
-		),
+		// 'gii'=>array(
+		// 	'class'=>'system.gii.GiiModule',
+		// 	'password'=>'crown',
+		// 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
+		// 	'ipFilters'=>array('127.0.0.1','::1'),
+		// ),
 		
 	),
 
@@ -33,7 +33,8 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			'allowAutoLogin' => true,
+			'loginUrl'=>array('login'),
 		),
 		// uncomment the following to enable URLs in path-format
 		
@@ -41,6 +42,9 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
+				'login' => array('site/login'),
+				'logout' => array('site/logout'),
+
 				'api/<controller:\w+>'=>array('<controller>/restList', 'verb'=>'GET'),
 				'api/<controller:\w+>/<id:\w+>'=>array('<controller>/restView', 'verb'=>'GET'),
 				'api/<controller:\w+>/<id:\w+>/<var:\w+>'=>array('<controller>/restView', 'verb'=>'GET'),

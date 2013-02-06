@@ -1,0 +1,59 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #868686;
+}
+
+body {
+	background-color: #121212;
+}
+
+#wrapper {
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 200px;
+}	
+
+.backButton {
+	float: right;
+	margin-top: 10px;
+}
+
+h1 {
+	font-size: 26px;
+	color: #535353;
+	font-weight: 200;
+}
+
+h2 {
+	font-size: 34px;
+	color: #D6D6D6;
+	font-weight: 200;
+	margin-bottom: 30px;
+}
+
+p {
+	margin-top: 5px;
+}
+
+.error {
+	margin-bottom: 20px;
+}
+
+form {
+	margin-top: 30px;
+}
+
+.cms input[type="text"],
+.cms input[type="email"],
+.cms input[type="password"] {
+	color: #E8E8E8;
+	font-weight: 200;
+	border: 1px solid #363636;
+	background-color: #161616;
+}
+
+.btn-secondary {
+	margin-left: 10px;
+}

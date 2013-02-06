@@ -27,9 +27,10 @@ class ServersController extends ERestController
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'users'=>array('*'),
+			array('allow', // allow all users to perform 'index' and 'view' actions
+				'users'=>array('@'),
 			),
+			array('deny')
 		);
 	}
 

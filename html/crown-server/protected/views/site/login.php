@@ -1,53 +1,25 @@
-<?php
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
+<h2>Login</h2>
 
-$this->pageTitle=Yii::app()->name . ' - Login';
-$this->breadcrumbs=array(
-	'Login',
-);
-?>
+<form class="cms" method="post" action="/site/login">
 
-<h1>Login</h1>
+	<? if($error) : ?>
 
-<p>Please fill out the following form with your login credentials:</p>
+		<div class="error">
 
-<div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'login-form',
-	'enableClientValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
-)); ?>
+			<p class="text-error">Your username or password are invalid. Stop trying to hack around dude.</p>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+		</div>
+		
+	<? endif; ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
+	<label for="user">User:</label>
+	<input type="text" name="user" id="user">
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
-		<p class="hint">
-			Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
-		</p>
-	</div>
+	<label for="password">Password:</label>
+	<input type="password" name="password" id="password">
 
-	<div class="row rememberMe">
-		<?php echo $form->checkBox($model,'rememberMe'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
-		<?php echo $form->error($model,'rememberMe'); ?>
-	</div>
+	<br>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
-	</div>
+	<input type="submit" value="Login" name="login" class="btn btn-inverse">
 
-<?php $this->endWidget(); ?>
-</div><!-- form -->
+</form>

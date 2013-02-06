@@ -1,0 +1,58 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\000031}}
+* {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #868686; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\000038}}
+body {
+  background-color: #121212; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000312}}
+#wrapper {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 200px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000318}}
+.backButton {
+  float: right;
+  margin-top: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000323}}
+h1 {
+  font-size: 26px;
+  color: #535353;
+  font-weight: 200; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000329}}
+h2 {
+  font-size: 34px;
+  color: #D6D6D6;
+  font-weight: 200;
+  margin-bottom: 30px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000336}}
+p {
+  margin-top: 5px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000340}}
+.error {
+  margin-bottom: 20px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000344}}
+form {
+  margin-top: 30px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000349}}
+.cms input[type="text"],
+.cms input[type="password"] {
+  color: #E8E8E8;
+  font-weight: 200;
+  border: 1px solid #363636;
+  background-color: #161616; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/uofnkona\.edu\/html\/uofnkona\.edu\/css\/dark\.scss}line{font-family:\0000356}}
+.btn-secondary {
+  margin-left: 10px; }
