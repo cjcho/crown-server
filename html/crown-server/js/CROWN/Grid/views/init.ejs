@@ -12,22 +12,12 @@
 
 	</div>
 </div>
-<table class="table table-bordered">
+<table class="content table table-bordered">
 	<thead class="subheading">
 		<tr>
-			<%
-			var i = 0 ;
-			$.each(given.fields, function(index, field){
-				//Setting width so refreshing looks prettier
-				//first row gets 30 percent, other rows need to share the remaining 70 procent of the table
-				var width = 70 / given.keys.length ;
-				if(i == 0) width = 30 ;
-			%>
-			<th width="<%=width%>%" data-key="<%=field.key%>"><%=field.label%> <i class="icon-chevron-up"></i></th>
-			<%	
-				i++ ;
-			});
-			%>
+			<% $.each(given.fields, function(index, field){ %>
+				<th width="<%=field.width%>%" data-key="<%=field.key%>"><%=field.label%> <i class="icon-chevron-up"></i></th>
+			<% i++ ; }); %>
 		</tr>
 	</thead>
 	<tbody></tbody>

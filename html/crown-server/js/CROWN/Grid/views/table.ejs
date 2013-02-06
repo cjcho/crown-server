@@ -10,7 +10,7 @@
 		%>
 			<tr class="model" <%=m%>>
 				<% $.each(given.fields, function(index, field){ %>
-					<td>
+					<td width="<%=field.width%>%">
 						<% if(field.html != null) {%>
 							<%==field.html%>
 						<%} else {%>

@@ -22,28 +22,34 @@ $.Controller('Servers.Servers',
 			showColumns:[
 						{
 							'label': 'IP Address',
-							'linkToObject': true
+							'linkToObject': true,
+							'width': 10
 						},
 						{
 							'label': 'Host Name',
-							'linkToObject': true
+							'linkToObject': true,
+							'width': 10
 						},
 						{
 							'label': 'Guest Name',
-							'linkToObject': true
+							'linkToObject': true,
+							'width': 20
 						},
 						{
 							'label': 'Info',
-							'linkToObject': true
+							'linkToObject': true,
+							'width': 30
 						},
 						{
 							'label': 'OS',
 							'key': 'operating_system',
-							'linkToObject': true
+							'linkToObject': true,
+							'width': 15
 						},
 						{
 							'label': 'CPU RAM',
-							'linkToObject': true
+							'linkToObject': true,
+							'width': 15
 						}
 						]
 		} ;
