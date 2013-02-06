@@ -134,7 +134,9 @@ $.Controller('CROWN.Detail',
 	'.save click': function(){		
 		var modelObj = new this.model({id:this.id}) ;
 		modelObj.attrs(this.element.find('form').formParams()) ;
-		modelObj.save();
+		modelObj.save(function(){
+			window.location.hash = '#!' ;
+		});
 	}
 
 }); // $.Controller
