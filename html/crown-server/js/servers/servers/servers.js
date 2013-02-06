@@ -51,6 +51,8 @@ $.Controller('Servers.Servers',
 		if(this.element.hasClass('crown_grid')) $(this.element).crown_grid('destroy') ;
 		this.element.crown_grid(options) ;
 
+		this.element.find('#filter').focus() ;
+
 	},
 
 	'servers/:id route': function(route){
