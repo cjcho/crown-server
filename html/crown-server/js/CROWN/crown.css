@@ -20,7 +20,7 @@ body {
 	margin-bottom: 0px;
 }
 
-.content {
+.content.table {
 	position: absolute;
 		top: 42px;
 		left: 0;
