@@ -1,6 +1,6 @@
 <h2>Login</h2>
 
-<form class="cms" method="post" action="/site/login">
+<form class="cms" method="post" action="/users/login">
 
 	<? if($error) : ?>
 
@@ -21,5 +21,6 @@
 	<br>
 
 	<input type="submit" value="Login" name="login" class="btn btn-inverse">
+	<a href="/signup" class="muted btn-secondary">Sign up</a>
 
 </form>

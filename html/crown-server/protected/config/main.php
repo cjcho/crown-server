@@ -15,6 +15,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'ext.restfullyii.components.*',
+		'application.vendors.bCrypt.*',
 	),
 
 	'modules'=>array(
@@ -42,8 +43,9 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
-				'login' => array('site/login'),
-				'logout' => array('site/logout'),
+				'login' => array('users/login'),
+				'logout' => array('users/logout'),
+				'signup' => array('users/signup'),
 
 				'api/<controller:\w+>'=>array('<controller>/restList', 'verb'=>'GET'),
 				'api/<controller:\w+>/<id:\w+>'=>array('<controller>/restView', 'verb'=>'GET'),
