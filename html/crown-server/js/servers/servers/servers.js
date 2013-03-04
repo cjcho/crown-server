@@ -100,6 +100,11 @@ $.Controller('Servers.Servers',
 						'section': 'Specifications'
 					},
 					{
+						'label': 'Storage Fields',
+						'tab': 'General',
+						'section': 'Specifications'
+					},
+					{
 						'label': 'Comment',
 						'type': 'textarea',
 						'tab': 'General',
